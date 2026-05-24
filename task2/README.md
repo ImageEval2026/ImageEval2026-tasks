@@ -1,6 +1,6 @@
-# Task 2: Textual Harmful Prompt Detection
+# Task 2:  Cultural Accuracy Evaluation
 
-The aim of this task is to identify harmful Arabic prompts directed at large language models. Please follow the task website for the latest information: <https://araieval.github.io/ArGuard2026/task2/>.
+The aim of this task is ....
 
 __Table of contents:__
 - [List of Versions](#list-of-versions)
@@ -33,38 +33,14 @@ __Table of contents:__
 
 ## Task Description
 
-Task 2 focuses on textual harmful prompt detection for Arabic LLM safety evaluation. Given an Arabic prompt, systems determine whether it is safe or unsafe and classify unsafe prompts into harm domains.
-
-- **Subtask 2A:** Given an Arabic prompt, classify it as `safe` or `unsafe`.
-- **Subtask 2B:** Given an unsafe Arabic prompt, classify it into the relevant harm domain.
-
-Harm domains include self-harm, harm to others, harassment, adult content, bullying, hate speech, and fraud or illegal activities.
 
 ## Dataset
 
-The dataset will include Arabic prompts annotated for safety evaluation. The proposal reports 25,071 prompts overall; released data will be the authoritative source for final split sizes and labels.
-
 ### Input Data Format
 
-The preliminary JSONL format is:
-
-```json
-{
-  "id": "example identifier",
-  "prompt": "Arabic prompt text",
-  "label": "safe or unsafe",
-  "category": "harm domain for unsafe prompts"
-}
-```
-
-Gold labels may be omitted from blind test files.
 
 ### Output Data Format
 
-The official output format will be confirmed with the starter kit. The expected format is:
-
-- Subtask 2A: TSV file with header `id<TAB>label<TAB>run_id`.
-- Subtask 2B: TSV file with header `id<TAB>category<TAB>run_id`.
 
 ## Scorer and Official Evaluation Metrics
 
@@ -106,4 +82,4 @@ Dataset licensing information will be included with the released data files.
 
 ## Credits
 
-Please find organizers and acknowledgments on the task website: <https://araieval.github.io/ArGuard2026/>.
+Please find organizers and acknowledgments on the task website: <https://imageeval2026.github.io/>.

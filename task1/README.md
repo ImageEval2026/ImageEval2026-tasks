@@ -1,4 +1,4 @@
-# Task 1: Multimodal Hateful Meme Detection
+# Task 1: Visual Question Answering and Hallucination Detection
 
 The aim of this task is to identify hateful content in Arabic memes. Systems receive a meme image and extracted Arabic text. Please follow the task website for the latest information: <https://imageeval2026.github.io/task1/>.
 
@@ -33,7 +33,7 @@ __Table of contents:__
 
 ## Task Description
 
-**Task 1 Visual Question Answering and Hallucination Detection.**
+
 
 ### **Subtask 1: Visual Question Answering** *Given an image and a language-specific spoken question (audio) about its content, the goal is to predict the correct answer option.*.
 
