@@ -259,6 +259,25 @@ Get an OpenRouter API key at [https://openrouter.ai/keys](https://openrouter.ai/
 | Mean baseline | N/A | 0.3450 |
 | GPT-4 via OpenRouter | 0.6250 | 0.2248 |
 
+---
+
+## Format Checker
+
+Before submitting to CodaLab, validate your predictions file:
+
+```bash
+python format_checker/check_format.py --pred predictions.tsv --split test
+```
+
+The checker verifies that:
+- The header row is present with the correct column names
+- All required instance IDs are present
+- All scores are floats in [0.0, 1.0]
+- The composite score matches the weighted formula within a tolerance of 0.01
+
+The scorer also runs format checking automatically, so any issues will be caught before metrics are computed.
+
+
 ## Submission
 
 ### Guidelines
