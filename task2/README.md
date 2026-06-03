@@ -257,7 +257,7 @@ Get an OpenRouter API key at [https://openrouter.ai/keys](https://openrouter.ai/
 | System | Spearman | MAE |
 |--------|----------|-----|
 | Mean baseline | N/A | 0.3450 |
-| GPT-4 via OpenRouter | 0.6455 | 0.2585 |
+| GPT-4 via OpenRouter | 0.6250 | 0.2248 |
 
 ## Submission
 

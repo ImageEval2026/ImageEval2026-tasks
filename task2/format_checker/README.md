@@ -1,10 +1,8 @@
 # Task 2 Format Checker
 
-Format checker scripts for Task 2 submissions will be released here.
+Run before submitting to CodaLab:
 
-The checker will validate:
-
-- Required columns or JSON fields.
-- Valid labels for Subtask 2A and Subtask 2B.
-- Matching prediction IDs.
-- Duplicate or missing predictions.
+```bash
+python check_format.py --pred predictions.tsv --split dev
+python check_format.py --pred predictions.tsv --split test
+```
