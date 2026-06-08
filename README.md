@@ -1,11 +1,16 @@
 # [ImageEval](https://imageeval2026.github.io/) at ArabicNLP 2026
 
-ImageEval is an shared task focusing on Arabic Multimodal Generation and Understanding with an special emphasis of Arabic Cultural Grounding.
+ImageEval is a shared task on Arabic multimodal generation and understanding, with a special emphasis on Arabic cultural grounding.
 This repository will contain the datasets, format checkers, scorers, baselines, and starter-kit material for each task.
 
-- [Task 1: Visual Question Answering and Hallucination Detection](task1)
+- [Task 1: Ayn-VQA, Spoken Visual Question Answering and Hallucination Detection](task1)
 
-The shared task on *culturally grounded Arabic visual question answering and hallucination detection*. Participants are given an *image* together with an *Arabic question* in MCQ format and must predict the correct answer. The task is offered in *MSA*, *Egyptian*, and *Levantine* Arabic. In addition, the hallucination track evaluates whether systems can distinguish image-grounded interpretations from plausible but unsupported alternatives. Culturally grounded Arabic visual question answering and hallucination detection
+A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):**
+given an image and a *spoken* Arabic question with its options (audio), predict
+the correct option. **Subtask 1c (Hallucination Detection):** given an image and
+three statements, judge each as image-grounded (True) or hallucinated (False); exactly one is grounded. Each subtask runs in two language tracks, **English** and
+**Modern Standard Arabic (MSA)**, scored separately. Data on
+[HuggingFace](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA).
 
 - [Task 2: Cultural Accuracy Evaluation in Image Generation](task2)
 
@@ -35,12 +40,15 @@ Given a reference image of a Qatari cultural scene, a culturally grounded Englis
 
 ## Timeline
 
-The official schedule is maintained on the task website:
+The official schedule is maintained on the [task website](https://imageeval2026.github.io/):
 
-- Task website, training and development data, and evaluation scripts: May 25, 2026
-- Registration deadline and blind test set release: July 25, 2026
-- Final submission deadline and release of final results: July 30, 2026
-- Camera-ready system description papers: August 22, 2026
+- **May 22, 2026:** Task website, training/development data, and evaluation scripts released
+- **July 20, 2026:** Registration deadline and blind test set release
+- **July 30, 2026:** Final results announced
+- **August 15, 2026:** System description papers due
+- **August 25, 2026:** Notification of acceptance
+- **September 5, 2026:** Camera-ready papers due
+- **October 24-29, 2026:** ArabicNLP main conference
 
 ## Licensing
 
@@ -61,4 +69,6 @@ TBA
 ```
 
 ## Related Resources
-https://github.com/ImageEval2026/ImageEval2026-tasks
+
+- Task website: <https://imageeval2026.github.io/>
+- Task 1 dataset (HuggingFace): <https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA>

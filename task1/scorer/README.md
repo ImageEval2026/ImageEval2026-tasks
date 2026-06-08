@@ -1,5 +1,42 @@
 # Task 1 Scorer
 
-Official scoring scripts for Task 1 will be released here.
+`score.py` computes **exactly the Codabench leaderboard metrics**, so you can
+evaluate yourself locally on a labelled split (e.g. `dev`) before submitting.
+Gold labels are read straight from the released JSONL (`label` for 1a, `labels`
+for 1c). A missing or unparseable prediction always counts as wrong.
 
-The official metric is macro-F1. Additional diagnostic metrics may include accuracy, macro-precision, macro-recall, and weighted F1.
+```bash
+python score.py --task 1a --gold ../data/task1a/dev_en.jsonl --pred prediction.csv
+python score.py --task 1c --gold ../data/task1c/dev_en.jsonl --pred prediction.csv
+```
+
+The first metric printed (marked `<-- RANKING`) is the one that orders the
+leaderboard. Pure Python standard library, no extra dependencies.
+
+## Task 1a: Spoken VQA
+
+| metric | role | meaning |
+|---|---|---|
+| **accuracy** | **ranking** | fraction of items answered correctly |
+| balanced_accuracy | reported | mean per-class recall over the three option positions |
+| macro_f1 | reported | macro-averaged F1 over the three option positions |
+
+## Task 1c: Hallucination Detection
+
+Exactly one statement per item is grounded ("Q+"); the other two are
+hallucinated ("Q−").
+
+| metric | role | meaning |
+|---|---|---|
+| **combined_accuracy** | **ranking** | fraction of items where **all three** labels are correct |
+| hallucination_rate | reported | `q_plus_accuracy − combined_accuracy`; lower is better |
+| conditional_hallucination_rate (CFHR-2) | reported | of items whose grounded statement was correctly identified, the fraction that still affirmed a hallucinated one; lower is better |
+| cfhr_3_rate | reported | of items with ≥1 of the three correct, the fraction not fully correct; lower is better |
+| q_plus_accuracy | reported | grounded statement correctly marked true |
+| q_minus_accuracy | reported | hallucinated statements correctly marked false (over all false statements) |
+| q_minus_both_accuracy | reported | both hallucinated statements marked false |
+
+True/False is read with the shared-task `evaluate_tf` parser (in
+[`backbone.py`](./backbone.py), bundled here so this scorer is identical to the
+Codabench one). It handles English and Arabic verdicts: `true`/`false`, `yes`/`no`,
+صح/خطأ, etc.
