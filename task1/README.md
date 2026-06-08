@@ -199,8 +199,8 @@ Zip your prediction CSV as `prediction.zip` and upload to the matching competiti
 |---|---|---|---|
 | `task1a_en`  | Spoken VQA | English | [compete](https://www.codabench.org/competitions/17002/) |
 | `task1a_msa` | Spoken VQA | MSA     | [compete](https://www.codabench.org/competitions/17001/) |
-| `task1b_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17000/) |
-| `task1b_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/16999/) |
+| `task1b_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17022/) |
+| `task1b_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/17021/) |
 
 - Each team should use a single submission account.
 - The most recent valid submission before the deadline is final.
