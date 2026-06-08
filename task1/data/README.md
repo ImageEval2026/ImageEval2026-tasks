@@ -1,6 +1,6 @@
 # Task 1 Data
 
-The **canonical dataset — including images and audio — lives on the HuggingFace Hub**:
+The **canonical dataset, including images and audio, lives on the HuggingFace Hub**:
 
 > **[QCRI/ImageEval2026-Task1-AynVQA](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA)**
 
@@ -32,8 +32,8 @@ Hub for the final-evaluation phase.
 
 ## Fields
 
-**Task 1a** — `id`, `image`, `audio`, and (labelled splits only) `label` ∈ {0,1,2}.
-**Task 1c** — `id`, `image`, `statements` (3), and (labelled splits only) `labels`
+**Task 1a**, `id`, `image`, `audio`, and (labelled splits only) `label` ∈ {0,1,2}.
+**Task 1c**, `id`, `image`, `statements` (3), and (labelled splits only) `labels`
 (three booleans, exactly one `true`).
 
 `train`/`dev` additionally include `country`, `category`, `subcategory`. These and
@@ -41,5 +41,5 @@ the gold labels are omitted from `devtest` and `test`.
 
 ## Licensing
 
-CC BY-NC 4.0 — non-commercial research use only. Do not commit private or
+CC BY-NC 4.0, non-commercial research use only. Do not commit private or
 unreleased data (e.g. test gold labels) to this public repository.

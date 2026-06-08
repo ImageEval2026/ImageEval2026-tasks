@@ -11,9 +11,9 @@ python score.py --task 1c --gold ../data/task1c/dev_en.jsonl --pred prediction.c
 ```
 
 The first metric printed (marked `<-- RANKING`) is the one that orders the
-leaderboard. Pure Python standard library — no extra dependencies.
+leaderboard. Pure Python standard library, no extra dependencies.
 
-## Task 1a — Spoken VQA
+## Task 1a: Spoken VQA
 
 | metric | role | meaning |
 |---|---|---|
@@ -21,7 +21,7 @@ leaderboard. Pure Python standard library — no extra dependencies.
 | balanced_accuracy | reported | mean per-class recall over the three option positions |
 | macro_f1 | reported | macro-averaged F1 over the three option positions |
 
-## Task 1c — Hallucination Detection
+## Task 1c: Hallucination Detection
 
 Exactly one statement per item is grounded ("Q+"); the other two are
 hallucinated ("Q−").
@@ -38,5 +38,5 @@ hallucinated ("Q−").
 
 True/False is read with the shared-task `evaluate_tf` parser (in
 [`backbone.py`](./backbone.py), bundled here so this scorer is identical to the
-Codabench one). It handles English and Arabic verdicts — `true`/`false`, `yes`/`no`,
+Codabench one). It handles English and Arabic verdicts: `true`/`false`, `yes`/`no`,
 صح/خطأ, etc.
