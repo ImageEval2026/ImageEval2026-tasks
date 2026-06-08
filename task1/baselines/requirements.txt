@@ -1,4 +1,4 @@
-# Open-model baselines (Task 1a / 1c) — GPU
+# Open-model baselines (Task 1a / 1b) — GPU
 transformers>=4.49.0
 accelerate>=0.34.0
 bitsandbytes>=0.43.0

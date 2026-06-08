@@ -6,7 +6,7 @@ The **canonical dataset, including images and audio, lives on the HuggingFace Hu
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("QCRI/ImageEval2026-Task1-AynVQA", "task1a_en", split="devtest")
+ds = load_dataset("QCRI/AynVQA", "task1a_en", split="devtest")
 ```
 
 This folder holds only the **JSONL text files** (no images, no audio) so you can
@@ -21,7 +21,7 @@ data/
 │   ├── train_en.jsonl    train_msa.jsonl     (3000 items, labelled)
 │   ├── dev_en.jsonl      dev_msa.jsonl       (500 items, labelled)
 │   └── devtest_en.jsonl  devtest_msa.jsonl   (500 items, no labels)
-└── task1c/
+└── task1b/
     ├── train_en.jsonl    train_msa.jsonl
     ├── dev_en.jsonl      dev_msa.jsonl
     └── devtest_en.jsonl  devtest_msa.jsonl
@@ -33,7 +33,7 @@ Hub for the final-evaluation phase.
 ## Fields
 
 **Task 1a**, `id`, `image`, `audio`, and (labelled splits only) `label` ∈ {0,1,2}.
-**Task 1c**, `id`, `image`, `statements` (3), and (labelled splits only) `labels`
+**Task 1b**, `id`, `image`, `statements` (3), and (labelled splits only) `labels`
 (three booleans, exactly one `true`).
 
 `train`/`dev` additionally include `country`, `category`, `subcategory`. These and
@@ -41,5 +41,4 @@ the gold labels are omitted from `devtest` and `test`.
 
 ## Licensing
 
-CC BY-NC 4.0, non-commercial research use only. Do not commit private or
-unreleased data (e.g. test gold labels) to this public repository.
+CC BY-NC 4.0, non-commercial research use only.

@@ -1,13 +1,8 @@
 # Task 1: Ayn-VQA, Spoken Visual Question Answering & Hallucination Detection
 
-**Ayn** (عين, "eye") is a culturally grounded Arabic multimodal benchmark. Given a
-culturally specific image, a system must (a) answer a **spoken** Arabic question
-about it, and (c) tell image-grounded statements apart from plausible but
-**hallucinated** ones. Part of the [ImageEval 2026](https://imageeval2026.github.io/)
-shared task at ArabicNLP 2026.
+**Ayn** (عين, "eye") is a culturally grounded Arabic multimodal benchmark. Given a culturally specific image, a system must (a) answer a **spoken** Arabic question about it, and (b) tell image-grounded statements apart from plausible but **hallucinated** ones. Part of the [ImageEval 2026](https://imageeval2026.github.io/) shared task at ArabicNLP 2026.
 
-Each subtask is offered as two language tracks, **English** and **Modern Standard
-Arabic (MSA)**, scored separately, for **four** Codabench competitions in total.
+Each subtask is offered as two language tracks, **English** and **Modern Standard Arabic (MSA)**, scored separately, for **four** Codabench competitions in total.
 
 > 📌 Please **[register here](https://docs.google.com/forms/d/e/1FAIpQLSd1QKF4rXD_gbLJlDykLvB0DGMIogwhraeOtWRiQiotucK0zA/viewform)**
 > so the organisers can keep you posted on data releases, deadlines, and updates.
@@ -63,7 +58,7 @@ provided, the model must listen), choose the correct option.
 
 **Prediction:** the option index `0`, `1` or `2`.
 
-### Subtask 1c: Hallucination Detection
+### Subtask 1b: Hallucination Detection
 
 Given an **image** and **three statements**, decide for **each** statement whether
 it is **True** (grounded in the image) or **False** (a hallucination). Exactly one
@@ -85,7 +80,7 @@ All splits, including the images and audio, live on the HuggingFace Hub:
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("QCRI/ImageEval2026-Task1-AynVQA", "task1a_en", split="devtest")
+ds = load_dataset("QCRI/AynVQA", "task1a_en", split="devtest")
 ```
 
 The JSONL files under [data/](./data) are the **text** half of the release, kept
@@ -112,7 +107,7 @@ here so you can read the format and run the scorer/checker directly. The
 {"id": "39550e...", "image": "images/39550e....jpg", "audio": "audio/en/39550e....wav", "label": 2}
 ```
 
-**Task 1c** (`data/task1c/<split>_<lang>.jsonl`):
+**Task 1b** (`data/task1b/<split>_<lang>.jsonl`):
 
 ```json
 {"id": "39550e...", "image": "images/39550e....jpg",
@@ -133,7 +128,7 @@ id,prediction
 5f985e...,1
 ```
 
-**Task 1c**, three rows per item, columns `id,statement_index,prediction`
+**Task 1b**, three rows per item, columns `id,statement_index,prediction`
 (`statement_index` ∈ {0,1,2}; `prediction` is `true`/`false`):
 
 ```
@@ -154,7 +149,7 @@ prediction always counts as wrong.
 **Task 1a, ranking metric: accuracy.** Balanced accuracy (mean per-class recall)
 and macro-F1 are also reported.
 
-**Task 1c, ranking metric: combined accuracy** (fraction of items where **all
+**Task 1b, ranking metric: combined accuracy** (fraction of items where **all
 three** labels are correct). The scorer also reports the hallucination rate,
 conditional hallucination rate (CFHR-2/3), and the Q+/Q− accuracies. True/False
 is read with the shared-task `evaluate_tf` parser (English and Arabic verdicts,
@@ -163,7 +158,7 @@ e.g. `true`/`false`, صح/خطأ).
 ```bash
 # score yourself on a labelled split (dev) before submitting
 python scorer/score.py --task 1a --gold data/task1a/dev_en.jsonl --pred prediction.csv
-python scorer/score.py --task 1c --gold data/task1c/dev_en.jsonl --pred prediction.csv
+python scorer/score.py --task 1b --gold data/task1b/dev_en.jsonl --pred prediction.csv
 ```
 
 See [scorer/README.md](./scorer/README.md) for the full metric definitions.
@@ -178,7 +173,7 @@ download the data → run a model → write a Codabench-ready `prediction.zip`:
 | baseline | subtask | open in Colab |
 |---|---|---|
 | Open model: Qwen2.5-Omni (4-bit) | 1a | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ImageEval2026/ImageEval2026-tasks/blob/main/task1/baselines/baseline_task1a_colab.ipynb) |
-| Open model: Qwen2.5-VL (4-bit) | 1c | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ImageEval2026/ImageEval2026-tasks/blob/main/task1/baselines/baseline_task1c_colab.ipynb) |
+| Open model: Qwen2.5-VL (4-bit) | 1b | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ImageEval2026/ImageEval2026-tasks/blob/main/task1/baselines/baseline_task1b_colab.ipynb) |
 | Cascaded API: Fanar STT → Oryx (no GPU) | 1a | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ImageEval2026/ImageEval2026-tasks/blob/main/task1/baselines/baseline_task1a_fanar_cascade_colab.ipynb) |
 
 (Also mirrored on [Google Drive](https://drive.google.com/drive/folders/1zDO2uXq0fEQhfNj8M2DstkNL1-EEXybT?usp=sharing).)
@@ -189,8 +184,8 @@ configurations. Reference scores (devtest):
 |---|---|---|---|---|
 | 1a | English | Qwen2.5-Omni | accuracy | 0.6640 |
 | 1a | MSA     | Qwen2.5-Omni | accuracy | 0.3980 |
-| 1c | English | Qwen2.5-VL   | combined accuracy | 0.6840 |
-| 1c | MSA     | Qwen2.5-VL   | combined accuracy | 0.5080 |
+| 1b | English | Qwen2.5-VL   | combined accuracy | 0.6840 |
+| 1b | MSA     | Qwen2.5-VL   | combined accuracy | 0.5080 |
 
 See [baselines/README.md](./baselines/README.md) for details.
 
@@ -202,7 +197,7 @@ Validate your prediction CSV before zipping it as `prediction.zip`:
 
 ```bash
 python format_checker/check_format.py --task 1a --pred prediction.csv
-python format_checker/check_format.py --task 1c --pred prediction.csv --gold data/task1c/devtest_en.jsonl
+python format_checker/check_format.py --task 1b --pred prediction.csv --gold data/task1b/devtest_en.jsonl
 ```
 
 It checks the columns, value ranges, duplicates, and (with `--gold`) that your
@@ -223,8 +218,8 @@ Zip your prediction CSV as `prediction.zip` and upload to the matching competiti
 |---|---|---|---|
 | `task1a_en`  | Spoken VQA | English | [compete](https://www.codabench.org/competitions/17002/) |
 | `task1a_msa` | Spoken VQA | MSA     | [compete](https://www.codabench.org/competitions/17001/) |
-| `task1c_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17000/) |
-| `task1c_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/16999/) |
+| `task1b_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17000/) |
+| `task1b_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/16999/) |
 
 - Each team should use a single submission account.
 - The most recent valid submission before the deadline is final.

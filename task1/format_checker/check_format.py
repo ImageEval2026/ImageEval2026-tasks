@@ -1,22 +1,20 @@
 """
-Ayn-VQA Submission Format Checker (Task 1a / Task 1c)
+Ayn-VQA Submission Format Checker (Task 1a / Task 1b)
 =====================================================
-Validates a prediction CSV before you zip it as ``prediction.zip`` and upload
-to Codabench. Catches the common mistakes early so you don't waste a submission.
+Validates a prediction CSV before you zip it as ``prediction.zip`` and upload to Codabench. Catches the common mistakes early so you don't waste a submission.
 
 Usage
 -----
     # Task 1a — one row per item: id,prediction  (prediction in {0,1,2})
     python check_format.py --task 1a --pred prediction.csv
 
-    # Task 1c — three rows per item: id,statement_index,prediction (true/false)
-    python check_format.py --task 1c --pred prediction.csv
+    # Task 1b — three rows per item: id,statement_index,prediction (true/false)
+    python check_format.py --task 1b --pred prediction.csv
 
 Optionally pass --gold to also check that your ids exactly match a split:
     python check_format.py --task 1a --pred prediction.csv --gold ../data/task1a/devtest_en.jsonl
 
-The Codabench scorer reads True/False with the same shared-task ``evaluate_tf``
-parser (English and Arabic verdicts). Predictions it cannot parse count as
+The Codabench scorer reads True/False with the same shared-task ``evaluate_tf`` parser (English and Arabic verdicts). Predictions it cannot parse count as
 ``false``; this checker warns you about those rows so nothing is silently lost.
 """
 
@@ -28,7 +26,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scorer"))
 try:
-    from backbone import evaluate_tf  # used only to warn about unparseable 1c verdicts
+    from backbone import evaluate_tf  # used only to warn about unparseable 1b verdicts
 except Exception:                     # checker still works without it
     evaluate_tf = None
 
@@ -73,7 +71,7 @@ def check_1a(rows, fieldnames, gold_ids):
     return errors, warnings
 
 
-def check_1c(rows, fieldnames, gold_ids):
+def check_1b(rows, fieldnames, gold_ids):
     errors, warnings = [], []
     required = ["id", "statement_index", "prediction"]
     missing = [c for c in required if c not in (fieldnames or [])]
@@ -137,7 +135,7 @@ def _check_ids(pred_ids, gold_ids, errors, warnings):
 
 def main():
     ap = argparse.ArgumentParser(description="Ayn-VQA submission format checker")
-    ap.add_argument("--task", required=True, choices=["1a", "1c"])
+    ap.add_argument("--task", required=True, choices=["1a", "1b"])
     ap.add_argument("--pred", required=True, help="your prediction CSV")
     ap.add_argument("--gold", help="optional JSONL split to match ids against (e.g. ../data/task1a/devtest_en.jsonl)")
     args = ap.parse_args()
@@ -156,7 +154,7 @@ def main():
     if args.task == "1a":
         errors, warnings = check_1a(rows, fieldnames, gold_ids)
     else:
-        errors, warnings = check_1c(rows, fieldnames, gold_ids)
+        errors, warnings = check_1b(rows, fieldnames, gold_ids)
 
     if warnings:
         print("WARNINGS:")

@@ -3,11 +3,11 @@
 `score.py` computes **exactly the Codabench leaderboard metrics**, so you can
 evaluate yourself locally on a labelled split (e.g. `dev`) before submitting.
 Gold labels are read straight from the released JSONL (`label` for 1a, `labels`
-for 1c). A missing or unparseable prediction always counts as wrong.
+for 1b). A missing or unparseable prediction always counts as wrong.
 
 ```bash
 python score.py --task 1a --gold ../data/task1a/dev_en.jsonl --pred prediction.csv
-python score.py --task 1c --gold ../data/task1c/dev_en.jsonl --pred prediction.csv
+python score.py --task 1b --gold ../data/task1b/dev_en.jsonl --pred prediction.csv
 ```
 
 The first metric printed (marked `<-- RANKING`) is the one that orders the
@@ -21,7 +21,7 @@ leaderboard. Pure Python standard library, no extra dependencies.
 | balanced_accuracy | reported | mean per-class recall over the three option positions |
 | macro_f1 | reported | macro-averaged F1 over the three option positions |
 
-## Task 1c: Hallucination Detection
+## Task 1b: Hallucination Detection
 
 Exactly one statement per item is grounded ("Q+"); the other two are
 hallucinated ("Q−").

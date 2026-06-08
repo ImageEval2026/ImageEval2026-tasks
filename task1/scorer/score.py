@@ -1,12 +1,12 @@
 """
-Ayn-VQA Official Scorer (Task 1a / Task 1c)
+Ayn-VQA Official Scorer (Task 1a / Task 1b)
 ===========================================
 Computes exactly the same metrics as the Codabench leaderboard, so you can
 score yourself locally on a labelled split (e.g. ``dev``) before submitting.
 
 Gold labels are read straight from the released HuggingFace JSONL:
     * Task 1a — the ``label`` field (index 0/1/2 of the correct option).
-    * Task 1c — the ``labels`` field (list of three booleans, exactly one True).
+    * Task 1b — the ``labels`` field (list of three booleans, exactly one True).
 Predictions are the submission CSVs (see the format checker / README).
 
 Usage
@@ -14,8 +14,8 @@ Usage
     # Task 1a — predict the option index
     python score.py --task 1a --gold ../data/task1a/dev_en.jsonl --pred prediction.csv
 
-    # Task 1c — True/False per statement
-    python score.py --task 1c --gold ../data/task1c/dev_en.jsonl --pred prediction.csv
+    # Task 1b — True/False per statement
+    python score.py --task 1b --gold ../data/task1b/dev_en.jsonl --pred prediction.csv
 
 A missing or unparseable prediction always counts as wrong. The first reported
 metric is the ranking metric used for the leaderboard.
@@ -108,9 +108,9 @@ def score_1a(gold_rows, pred_rows):
 
 
 # ────────────────────────────────────────────────────────────────────────────
-# Task 1c — Hallucination detection (full evals.py panel)
+# Task 1b — Hallucination detection (full evals.py panel)
 # ────────────────────────────────────────────────────────────────────────────
-def score_1c(gold_rows, pred_rows):
+def score_1b(gold_rows, pred_rows):
     _require(gold_rows and "labels" in gold_rows[0],
              "gold JSONL has no 'labels' field — use a labelled split (train/dev).")
     _require(pred_rows and {"id", "statement_index", "prediction"}.issubset(pred_rows[0].keys()),
@@ -189,15 +189,15 @@ def score_1c(gold_rows, pred_rows):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Ayn-VQA official scorer (Task 1a / 1c)")
-    ap.add_argument("--task", required=True, choices=["1a", "1c"])
+    ap = argparse.ArgumentParser(description="Ayn-VQA official scorer (Task 1a / 1b)")
+    ap.add_argument("--task", required=True, choices=["1a", "1b"])
     ap.add_argument("--gold", required=True, help="labelled JSONL (e.g. ../data/task1a/dev_en.jsonl)")
     ap.add_argument("--pred", required=True, help="your prediction CSV")
     args = ap.parse_args()
 
     gold_rows = read_jsonl(args.gold)
     pred_rows = read_csv(args.pred)
-    scores = score_1a(gold_rows, pred_rows) if args.task == "1a" else score_1c(gold_rows, pred_rows)
+    scores = score_1a(gold_rows, pred_rows) if args.task == "1a" else score_1b(gold_rows, pred_rows)
 
     print(f"\nScored Task {args.task} on {len(gold_rows)} items\n")
     print(f"{'metric':<34}{'value':>10}")
