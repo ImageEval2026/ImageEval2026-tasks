@@ -35,7 +35,7 @@ __Table of contents:__
 
 
 
-### **Subtask 1: Visual Question Answering** *Given an image and a language-specific spoken question (audio) about its content, the goal is to predict the correct answer option.*.
+### **Subtask 1A: Spoken MCQ Visual Question Answering** *Given an image and a language-specific spoken question (audio) about its content, the goal is to predict the correct answer option.*.
 
 ## Dataset
 
@@ -74,7 +74,7 @@ The format checker will be released in [format_checker](./format_checker). It wi
 
 
 
-### **Subtask 2: Hallucination Detection** *Given an image together with one grounded true statement and two culturally plausible but visually incorrect counterfactual statements, the goal is to judge each statement as true or false.*
+### **Subtask 1B: Image-Grounded Hallucination Detection** *Given an image together with one grounded true statement and two culturally plausible but visually incorrect counterfactual statements, the goal is to judge each statement as true or false.*
 
 ## Dataset
 
