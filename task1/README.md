@@ -1,4 +1,4 @@
-# Task 1: Ayn-VQA, Spoken Visual Question Answering & Hallucination Detection
+# Task 1: Culturally Grounded Arabic Visual Question Answering and Hallucination Detection
 
 **Ayn** (عين, "eye") is a culturally grounded Arabic multimodal benchmark. Given a culturally specific image, a system must (a) answer a **spoken** Arabic question about it, and (b) tell image-grounded statements apart from plausible but **hallucinated** ones. Part of the [ImageEval 2026](https://imageeval2026.github.io/) shared task at ArabicNLP 2026.
 
@@ -33,17 +33,13 @@ __Table of contents:__
 ## Contents of the Directory
 
 * [data/](./data)<br/>
-  The released JSONL files (`train`, `dev`, `devtest` × `en`/`msa`) for both
-  subtasks. Images and audio are **not** in this repo, they live on the
-  HuggingFace Hub; the JSONL `image`/`audio` fields are relative paths into it.
+  The released JSONL files (`train`, `dev`, `devtest` × `en`/`msa`) for both subtasks. Images and audio are **not** in this repo, they live on the HuggingFace Hub; the JSONL `image`/`audio` fields are relative paths into it.
 * [baselines/](./baselines)<br/>
-  Ready-to-run Colab notebooks: an open-model baseline (Qwen2.5-Omni / Qwen2.5-VL)
-  and a cascaded API baseline (Fanar) for Task 1a.
+  Ready-to-run Colab notebooks: an open-model baseline (Qwen2.5-Omni / Qwen2.5-VL)  and a cascaded API baseline (Fanar) for Task 1a.
 * [format_checker/](./format_checker)<br/>
   `check_format.py`, validate your prediction CSV before submitting.
 * [scorer/](./scorer)<br/>
-  `score.py`, the official scorer; computes exactly the Codabench leaderboard
-  metrics on a labelled split.
+  `score.py`, the official scorer; computes exactly the Codabench leaderboard metrics on a labelled split.
 * [README.md](./README.md)<br/>
   This file.
 
@@ -53,22 +49,17 @@ __Table of contents:__
 
 ### Subtask 1a: Spoken VQA
 
-Given an **image** and a **spoken** question with its options (audio; no text is
-provided, the model must listen), choose the correct option.
+Given an **image** and a **spoken** question with its options (audio; no text is provided, the model must listen), choose the correct option.
 
 **Prediction:** the option index `0`, `1` or `2`.
 
 ### Subtask 1b: Hallucination Detection
 
-Given an **image** and **three statements**, decide for **each** statement whether
-it is **True** (grounded in the image) or **False** (a hallucination). Exactly one
-of the three statements is grounded.
+Given an **image** and **three statements**, decide for **each** statement whether it is **True** (grounded in the image) or **False** (a hallucination). Exactly one of the three statements is grounded.
 
 **Prediction:** a `true`/`false` label per statement.
 
-The English and MSA tracks of a subtask are parallel: same images, same answers;
-the questions/statements are translations of each other. The dataset spans **18
-Arab countries**.
+The English and MSA tracks of a subtask are parallel: same images, same answers; the questions/statements are translations of each other. The dataset spans **18 Arab countries**.
 
 ---
 
@@ -76,17 +67,14 @@ Arab countries**.
 
 All splits, including the images and audio, live on the HuggingFace Hub:
 
-> **[QCRI/ImageEval2026-Task1-AynVQA](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA)**
+> **[QCRI/ImageEval2026-Task1-AynVQA](https://huggingface.co/datasets/QCRI/AynVQA)**
 
 ```python
 from datasets import load_dataset
 ds = load_dataset("QCRI/AynVQA", "task1a_en", split="devtest")
 ```
 
-The JSONL files under [data/](./data) are the **text** half of the release, kept
-here so you can read the format and run the scorer/checker directly. The
-`image` and `audio` fields are relative paths (`images/<id>.jpg`,
-`audio/<lang>/<id>.wav`) that resolve against the media on the Hub.
+The JSONL files under [data/](./data) are the **text** half of the release, kept here so you can read the format and run the scorer/checker directly. The `image` and `audio` fields are relative paths (`images/<id>.jpg`, `audio/<lang>/<id>.wav`) that resolve against the media on the Hub.
 
 | split | labels | items | use |
 |---|---|---:|---|
@@ -142,18 +130,11 @@ id,statement_index,prediction
 
 ## Scorer and Official Evaluation Metrics
 
-Each of the four tracks is scored separately; the scorer in [scorer/](./scorer)
-reports exactly the Codabench leaderboard columns. A missing or unparseable
-prediction always counts as wrong.
+Each of the four tracks is scored separately; the scorer in [scorer/](./scorer) reports exactly the Codabench leaderboard columns. A missing or unparseable prediction always counts as wrong.
 
-**Task 1a, ranking metric: accuracy.** Balanced accuracy (mean per-class recall)
-and macro-F1 are also reported.
+**Task 1a, ranking metric: accuracy.** Balanced accuracy (mean per-class recall) and macro-F1 are also reported.
 
-**Task 1b, ranking metric: combined accuracy** (fraction of items where **all
-three** labels are correct). The scorer also reports the hallucination rate,
-conditional hallucination rate (CFHR-2/3), and the Q+/Q− accuracies. True/False
-is read with the shared-task `evaluate_tf` parser (English and Arabic verdicts,
-e.g. `true`/`false`, صح/خطأ).
+**Task 1b, ranking metric: combined accuracy** (fraction of items where **all three** labels are correct). The scorer also reports the hallucination rate, conditional hallucination rate (CFHR-2/3), and the Q+/Q− accuracies. True/False is read with the shared-task `evaluate_tf` parser (English and Arabic verdicts, e.g. `true`/`false`, صح/خطأ).
 
 ```bash
 # score yourself on a labelled split (dev) before submitting
