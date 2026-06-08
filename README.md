@@ -3,16 +3,11 @@
 ImageEval is a shared task on Arabic multimodal generation and understanding, with a special emphasis on Arabic cultural grounding.
 This repository will contain the datasets, format checkers, scorers, baselines, and starter-kit material for each task.
 
-- [Task 1: Ayn-VQA, Spoken Visual Question Answering and Hallucination Detection](task1)
+- [Task 1: Cultural Grounding in Arabic Multimodal Generation and Understanding](task1)
 
-A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):**
-given an image and a *spoken* Arabic question with its options (audio), predict
-the correct option. **Subtask 1c (Hallucination Detection):** given an image and
-three statements, judge each as image-grounded (True) or hallucinated (False); exactly one is grounded. Each subtask runs in two language tracks, **English** and
-**Modern Standard Arabic (MSA)**, scored separately. Data on
-[HuggingFace](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA).
+A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):** given an image and a *spoken* Arabic question with its options (audio), predict the correct option. **Subtask 1b (Hallucination Detection):** given an image and three statements, judge each as image-grounded (True) or hallucinated (False); exactly one is grounded. Each subtask runs in two language tracks, **English** and **Modern Standard Arabic (MSA)**, scored separately. Data on [HuggingFace](https://huggingface.co/datasets/QCRI/AynVQA).
 
-- [Task 2: Cultural Accuracy Evaluation in Image Generation](task2)
+- [Task 2: Cultural Accuracy Evaluation for Text-to-Image Generation](task2)
 
 Given a reference image of a Qatari cultural scene, a culturally grounded English image caption, and an AI-generated image produced from that caption, participants must produce a CRAI score in [0,1] across five dimensions. Systems are evaluated against human-annotated gold CRAI scores. This subtask benchmarks LLM-as-a-judge approaches against human cultural annotation in Qatari contexts.
 
@@ -64,11 +59,11 @@ Please check the task-specific directory for licensing information for the respe
 
 The task overview paper should be cited once available. A provisional BibTeX entry is provided in [bibtex/bibliography.bib](bibtex/bibliography.bib).
 
-```bibtex
+<!-- ```bibtex
 TBA
-```
+``` -->
 
 ## Related Resources
 
-- Task website: <https://imageeval2026.github.io/>
-- Task 1 dataset (HuggingFace): <https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA>
+<!-- - Task website: <https://imageeval2026.github.io/> -->
+<!-- - Task 1 dataset (HuggingFace): <https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA> -->
