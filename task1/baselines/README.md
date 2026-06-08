@@ -1,10 +1,10 @@
 # Task 1 Baselines
 
-Starter **Colab notebooks** that run end to end — install deps → download the
+Starter **Colab notebooks** that run end to end: install deps → download the
 data from HuggingFace → run a model → write a Codabench-ready `prediction.zip`.
 They default to the **English** track and the **devtest** split; both are flags
 you can flip in the config cell (`LANG = "en" | "msa"`). These are **references
-only** — you are free to use your own models, prompts, and configurations.
+only**; you are free to use your own models, prompts, and configurations.
 
 | notebook | subtask | what it does | open in Colab |
 |---|---|---|---|
@@ -17,7 +17,7 @@ The notebooks are also mirrored on
 
 ## Running
 
-- **Open-model notebooks** need a GPU runtime — in Colab, *Runtime → Change
+- **Open-model notebooks** need a GPU runtime, in Colab, *Runtime → Change
   runtime type → T4 GPU*. They load the model in **4-bit** so it fits a free T4.
 - **Fanar cascade** needs no GPU, just a Fanar API key (set it in the config cell).
   Get one at [api.fanar.qa](https://api.fanar.qa/).
