@@ -3,9 +3,15 @@
 ImageEval is an shared task focusing on Arabic Multimodal Generation and Understanding with an special emphasis of Arabic Cultural Grounding.
 This repository will contain the datasets, format checkers, scorers, baselines, and starter-kit material for each task.
 
-- [Task 1: Visual Question Answering and Hallucination Detection](task1)
+- [Task 1: Ayn-VQA — Spoken Visual Question Answering and Hallucination Detection](task1)
 
-The shared task on *culturally grounded Arabic visual question answering and hallucination detection*. Participants are given an *image* together with an *Arabic question* in MCQ format and must predict the correct answer. The task is offered in *MSA*, *Egyptian*, and *Levantine* Arabic. In addition, the hallucination track evaluates whether systems can distinguish image-grounded interpretations from plausible but unsupported alternatives. Culturally grounded Arabic visual question answering and hallucination detection
+A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):**
+given an image and a *spoken* Arabic question with its options (audio), predict
+the correct option. **Subtask 1c (Hallucination Detection):** given an image and
+three statements, judge each as image-grounded (True) or hallucinated (False) —
+exactly one is grounded. Each subtask runs in two language tracks, **English** and
+**Modern Standard Arabic (MSA)**, scored separately. Data on
+[HuggingFace](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA).
 
 - [Task 2: Cultural Accuracy Evaluation in Image Generation](task2)
 

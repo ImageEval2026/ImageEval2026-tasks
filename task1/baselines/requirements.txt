@@ -1,0 +1,16 @@
+# Open-model baselines (Task 1a / 1c) — GPU
+transformers>=4.49.0
+accelerate>=0.34.0
+bitsandbytes>=0.43.0
+qwen-omni-utils
+qwen-vl-utils
+torch
+torchvision
+soundfile
+librosa
+# Data + cascaded Fanar API baseline (no GPU)
+huggingface_hub[hf_transfer]
+datasets
+requests
+Pillow
+tqdm
