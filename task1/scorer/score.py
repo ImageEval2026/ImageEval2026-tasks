@@ -132,7 +132,7 @@ def score_1b(gold_rows, pred_rows):
         preds.setdefault(iid, {})[si] = r["prediction"]
 
     total = q_minus_total = covered = 0
-    q_plus_c = q_minus_c = combined_c = q_minus_both_c = 0
+    q_plus_c = q_minus_c = combined_c = 0
     cfhr_2 = cfhr_2_total = cfhr_3 = cfhr_3_total = 0
     qp_no_clear = qm0_no_clear = qm1_no_clear = 0
 
@@ -154,7 +154,6 @@ def score_1b(gold_rows, pred_rows):
         q_plus_c += inc_qp
         q_minus_c += inc_qm0 + inc_qm1
         combined_c += inc_qp and inc_qm0 and inc_qm1
-        q_minus_both_c += inc_qm0 and inc_qm1
 
         if inc_qp:
             cfhr_2_total += 1
@@ -174,7 +173,6 @@ def score_1b(gold_rows, pred_rows):
 
     q_plus_accuracy = _rate(q_plus_c, total)
     combined_accuracy = _rate(combined_c, total)
-    hallucination_rate = float(round(q_plus_accuracy - combined_accuracy, 6))
 
     return [
         ("contrastive_instability", _rate(cfhr_3, cfhr_3_total),     True),   # ranking; lower is better
