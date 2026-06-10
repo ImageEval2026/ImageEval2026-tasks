@@ -2,11 +2,11 @@
 
 The **canonical dataset, including images and audio, lives on the HuggingFace Hub**:
 
-> **[QCRI/ImageEval2026-Task1-AynVQA](https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA)**
+> **[QCRI/AynVQA-ArabicNLP26](https://huggingface.co/datasets/QCRI/AynVQA-ArabicNLP26)**
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("QCRI/AynVQA", "task1a_en", split="devtest")
+ds = load_dataset("QCRI/AynVQA-ArabicNLP26", "task1a_en", split="devtest")
 ```
 
 This folder holds only the **JSONL text files** (no images, no audio) so you can

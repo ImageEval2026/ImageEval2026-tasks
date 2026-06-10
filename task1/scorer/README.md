@@ -28,13 +28,11 @@ hallucinated ("Q−").
 
 | metric | role | meaning |
 |---|---|---|
-| **combined_accuracy** | **ranking** | fraction of items where **all three** labels are correct |
-| hallucination_rate | reported | `q_plus_accuracy − combined_accuracy`; lower is better |
-| conditional_hallucination_rate (CFHR-2) | reported | of items whose grounded statement was correctly identified, the fraction that still affirmed a hallucinated one; lower is better |
-| cfhr_3_rate | reported | of items with ≥1 of the three correct, the fraction not fully correct; lower is better |
+| **contrastive_instability** | **ranking** | of items with ≥1 of the three labels correct, the fraction not fully correct (all three right); lower is better |
+| combined_accuracy | reported | fraction of items where **all three** labels are correct |
+| cfhr | reported | of items whose grounded statement was correctly identified, the fraction that still affirmed a hallucinated one; lower is better |
 | q_plus_accuracy | reported | grounded statement correctly marked true |
 | q_minus_accuracy | reported | hallucinated statements correctly marked false (over all false statements) |
-| q_minus_both_accuracy | reported | both hallucinated statements marked false |
 
 True/False is read with the shared-task `evaluate_tf` parser (in
 [`backbone.py`](./backbone.py), bundled here so this scorer is identical to the

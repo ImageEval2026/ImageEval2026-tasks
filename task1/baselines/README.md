@@ -30,8 +30,10 @@ The notebooks are also mirrored on
 |---|---|---|---|---|
 | 1a | English | Qwen2.5-Omni | accuracy | 0.6640 |
 | 1a | MSA     | Qwen2.5-Omni | accuracy | 0.3980 |
-| 1b | English | Qwen2.5-VL   | combined accuracy | 0.6840 |
-| 1b | MSA     | Qwen2.5-VL   | combined accuracy | 0.5080 |
+| 1b | English | Qwen2.5-VL   | contrastive instability | 0.3133 |
+| 1b | MSA     | Qwen2.5-VL   | contrastive instability | 0.4900 |
+
+(1b combined accuracy: 0.6840 EN / 0.5080 MSA. Contrastive instability is lower-is-better.)
 
 ## Local install (if running outside Colab)
 
