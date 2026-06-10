@@ -67,11 +67,11 @@ The English and MSA tracks of a subtask are parallel: same images, same answers;
 
 All splits, including the images and audio, live on the HuggingFace Hub:
 
-> **[QCRI/ImageEval2026-Task1-AynVQA](https://huggingface.co/datasets/QCRI/AynVQA)**
+> **[QCRI/AynVQA-ArabicNLP26](https://huggingface.co/datasets/QCRI/AynVQA-ArabicNLP26)**
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("QCRI/AynVQA", "task1a_en", split="devtest")
+ds = load_dataset("QCRI/AynVQA-ArabicNLP26", "task1a_en", split="devtest")
 ```
 
 The JSONL files under [data/](./data) are the **text** half of the release, kept here so you can read the format and run the scorer/checker directly. The `image` and `audio` fields are relative paths (`images/<id>.jpg`, `audio/<lang>/<id>.wav`) that resolve against the media on the Hub.
@@ -134,7 +134,7 @@ Each of the four tracks is scored separately; the scorer in [scorer/](./scorer) 
 
 **Task 1a, ranking metric: accuracy.** Balanced accuracy (mean per-class recall) and macro-F1 are also reported.
 
-**Task 1b, ranking metric: combined accuracy** (fraction of items where **all three** labels are correct). The scorer also reports the hallucination rate, conditional hallucination rate (CFHR-2/3), and the Q+/Q− accuracies. True/False is read with the shared-task `evaluate_tf` parser (English and Arabic verdicts, e.g. `true`/`false`, صح/خطأ).
+**Task 1b, ranking metric: Contrastive Instability (CI)** (of items with at least one of the three labels correct, the fraction not fully correct; lower is better). The scorer also reports combined accuracy, CFHR, and the Q+/Q− accuracies. True/False is read with the shared-task `evaluate_tf` parser (English and Arabic verdicts, e.g. `true`/`false`, صح/خطأ).
 
 ```bash
 # score yourself on a labelled split (dev) before submitting
@@ -165,8 +165,10 @@ configurations. Reference scores (devtest):
 |---|---|---|---|---|
 | 1a | English | Qwen2.5-Omni | accuracy | 0.6640 |
 | 1a | MSA     | Qwen2.5-Omni | accuracy | 0.3980 |
-| 1b | English | Qwen2.5-VL   | combined accuracy | 0.6840 |
-| 1b | MSA     | Qwen2.5-VL   | combined accuracy | 0.5080 |
+| 1b | English | Qwen2.5-VL   | contrastive instability | 0.3133 |
+| 1b | MSA     | Qwen2.5-VL   | contrastive instability | 0.4900 |
+
+(1b combined accuracy: 0.6840 EN / 0.5080 MSA. Contrastive instability is lower-is-better.)
 
 See [baselines/README.md](./baselines/README.md) for details.
 
@@ -199,8 +201,8 @@ Zip your prediction CSV as `prediction.zip` and upload to the matching competiti
 |---|---|---|---|
 | `task1a_en`  | Spoken VQA | English | [compete](https://www.codabench.org/competitions/17002/) |
 | `task1a_msa` | Spoken VQA | MSA     | [compete](https://www.codabench.org/competitions/17001/) |
-| `task1b_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17022/) |
-| `task1b_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/17021/) |
+| `task1b_en`  | Hallucination | English | [compete](https://www.codabench.org/competitions/17046/) |
+| `task1b_msa` | Hallucination | MSA     | [compete](https://www.codabench.org/competitions/17045/) |
 
 - Each team should use a single submission account.
 - The most recent valid submission before the deadline is final.

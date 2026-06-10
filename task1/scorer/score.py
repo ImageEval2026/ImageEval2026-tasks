@@ -177,14 +177,11 @@ def score_1b(gold_rows, pred_rows):
     hallucination_rate = float(round(q_plus_accuracy - combined_accuracy, 6))
 
     return [
-        ("combined_accuracy",              combined_accuracy,                       True),
-        ("hallucination_rate",             hallucination_rate,                      False),
-        ("conditional_hallucination_rate", _rate(q_plus_c - combined_c, q_plus_c),  False),
-        ("cfhr_2_rate",                    _rate(cfhr_2, cfhr_2_total),             False),
-        ("cfhr_3_rate",                    _rate(cfhr_3, cfhr_3_total),             False),
-        ("q_plus_accuracy",                q_plus_accuracy,                         False),
-        ("q_minus_accuracy",               _rate(q_minus_c, q_minus_total),         False),
-        ("q_minus_both_accuracy",          _rate(q_minus_both_c, total),            False),
+        ("contrastive_instability", _rate(cfhr_3, cfhr_3_total),     True),   # ranking; lower is better
+        ("combined_accuracy",       combined_accuracy,               False),
+        ("cfhr",                    _rate(cfhr_2, cfhr_2_total),     False),
+        ("q_plus_accuracy",         q_plus_accuracy,                 False),
+        ("q_minus_accuracy",        _rate(q_minus_c, q_minus_total), False),
     ]
 
 

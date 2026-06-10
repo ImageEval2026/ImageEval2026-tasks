@@ -5,7 +5,7 @@ This repository will contain the datasets, format checkers, scorers, baselines, 
 
 - [Task 1: Cultural Grounding in Arabic Multimodal Generation and Understanding](task1)
 
-A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):** given an image and a *spoken* Arabic question with its options (audio), predict the correct option. **Subtask 1b (Hallucination Detection):** given an image and three statements, judge each as image-grounded (True) or hallucinated (False); exactly one is grounded. Each subtask runs in two language tracks, **English** and **Modern Standard Arabic (MSA)**, scored separately. Data on [HuggingFace](https://huggingface.co/datasets/QCRI/AynVQA).
+A culturally grounded Arabic multimodal benchmark. **Subtask 1a (Spoken VQA):** given an image and a *spoken* Arabic question with its options (audio), predict the correct option. **Subtask 1b (Hallucination Detection):** given an image and three statements, judge each as image-grounded (True) or hallucinated (False); exactly one is grounded. Each subtask runs in two language tracks, **English** and **Modern Standard Arabic (MSA)**, scored separately. Data on [HuggingFace](https://huggingface.co/datasets/QCRI/AynVQA-ArabicNLP26).
 
 - [Task 2: Cultural Accuracy Evaluation for Text-to-Image Generation](task2)
 
@@ -66,4 +66,4 @@ TBA
 ## Related Resources
 
 <!-- - Task website: <https://imageeval2026.github.io/> -->
-<!-- - Task 1 dataset (HuggingFace): <https://huggingface.co/datasets/QCRI/ImageEval2026-Task1-AynVQA> -->
+<!-- - Task 1 dataset (HuggingFace): <https://huggingface.co/datasets/QCRI/AynVQA-ArabicNLP26> -->
