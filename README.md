@@ -52,7 +52,7 @@ Please check the task-specific directory for licensing information for the respe
 ## Contact
 
 - Website: <https://imageeval2026.github.io/>
-- Slack Channel:
+- Slack Channel: <https://join.slack.com/t/mm-eval/shared_invite/zt-41j09ml4j-WMn0NzhqAgT9ZK6e1L8eBA>
 - Email: <imageeval2026@gmail.com>
 
 ## Citation
