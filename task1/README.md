@@ -4,7 +4,7 @@
 
 Each subtask is offered as two language tracks, **English** and **Modern Standard Arabic (MSA)**, scored separately, for **four** Codabench competitions in total.
 
-> 📌 Join our **[Slack channel](https://join.slack.com/t/mm-eval/shared_invite/zt-41j09ml4j-WMn0NzhqAgT9ZK6e1L8eBA)**
+> 📌 Join our **[Slack channel](https://join.slack.com/t/mm-eval/shared_invite/zt-44zii4e53-IiZZ3O73Za9XL4umb9mjUQ)**
 > for announcements about data releases, deadlines, and updates, and to connect with other participants.
 
 __Table of contents:__
@@ -218,7 +218,7 @@ Zip your prediction CSV as `prediction.zip` and upload to the matching competiti
 | **Testing** | `2026-07-20 → 2026-07-29` | `test`: blind, final ranking |
 
 Dates may shift, watch the [website](https://imageeval2026.github.io/) and our
-[Slack channel](https://join.slack.com/t/mm-eval/shared_invite/zt-41j09ml4j-WMn0NzhqAgT9ZK6e1L8eBA).
+[Slack channel](https://join.slack.com/t/mm-eval/shared_invite/zt-44zii4e53-IiZZ3O73Za9XL4umb9mjUQ).
 
 ---
 
