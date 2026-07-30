@@ -57,11 +57,11 @@ Please check the task-specific directory for licensing information for the respe
 
 ## Citation
 
-The task overview paper should be cited once available. A provisional BibTeX entry is provided in [bibtex/bibliography.bib](bibtex/bibliography.bib).
+### Mandatory Citations
 
-### Mandatory citations.
+The shared tasks build on the contributions described in the papers below. If you participate in the shared tasks or use any associated resources in your work, you must cite the following papers.
 
-
+BibTeX entries for these papers are also available in [bibtex/bibliography.bib](bibtex/bibliography.bib).
 
 ```bibtex
 @inproceedings{imageeval-2026,
