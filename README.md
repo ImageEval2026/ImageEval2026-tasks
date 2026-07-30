@@ -59,9 +59,74 @@ Please check the task-specific directory for licensing information for the respe
 
 The task overview paper should be cited once available. A provisional BibTeX entry is provided in [bibtex/bibliography.bib](bibtex/bibliography.bib).
 
-<!-- ```bibtex
-TBA
-``` -->
+### Mandatory citations.
+
+
+
+```bibtex
+@inproceedings{imageeval-2026,
+    title = {{ImageEval 2026}: Culturally Grounded {A}rabic Multimodal Evaluation},
+    author = {Abdaljalil, Samir and
+              Bhatti, Hunzalah Hassan and
+              Bashiti, Ahlam and
+              Amir, Farina and
+              Hasan, Md Arid and
+              Mousi, Basel and
+              Durrani, Nadir and
+              Dalvi, Fahim and
+              Sheikh Ali, Zien and
+              Serpedin, Erchin and
+              Kurban, Hasan and
+              Jarrar, Mustafa and
+              Chowdhury, Shammur Absar and
+              Alam, Firoj},
+    booktitle = {Proceedings of the Fourth Arabic Natural Language Processing Conference: Shared Tasks},
+    month = oct,
+    year = {2026},
+    address = {Budapest, Hungary},
+    publisher = {Association for Computational Linguistics}
+}
+
+@article{alam2025everydaymmqa,
+  title = {{OASIS}: A Multilingual and Multimodal Dataset for Culturally Grounded Spoken Visual QA},
+  author = {Alam, Firoj and Shahroor, Ali Ezzat and Hasan, Md. Arid and Ali, Zien Sheikh and Bhatti, Hunzalah Hassan and Kmainasi, Mohamed Bayan and Chowdhury, Shammur Absar and Mousi, Basel and Dalvi, Fahim and Durrani, Nadir and Milic-Frayling, Natasa},
+  journal = {arXiv preprint arXiv:2510.06371},
+  year = {2025},
+}
+
+@inproceedings{mousi-etal-2026-correct,
+    title = "Once Correct, Still Wrong: Counterfactual Hallucination in Multilingual Vision-Language Models",
+    author = "Mousi, Basel  and
+      Dalvi, Fahim  and
+      Chowdhury, Shammur Absar  and
+      Alam, Firoj  and
+      Durrani, Nadir",
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-acl.234/",
+    doi = "10.18653/v1/2026.findings-acl.234",
+    pages = "4763--4788",
+    ISBN = "979-8-89176-395-1",
+}
+
+@inproceedings{mousi2026said,
+  title     = {Said Aloud, Read Different: Cross-Modal Instability in Multimodal Models},
+  author    = {Mousi, Basel and Dalvi, Fahim and Chowdhury, Shammur and Alam, Firoj and Durrani, Nadir},
+  booktitle = {Proceedings of Interspeech 2026},
+  year      = {2026},
+  address   = {Sydney, Australia},
+  note = {accepted}
+}
+```
+
+
 
 ## Related Resources
 
