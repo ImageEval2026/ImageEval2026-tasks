@@ -41,4 +41,4 @@ the gold labels are omitted from `devtest` and `test`.
 
 ## Licensing
 
-CC BY-NC 4.0, non-commercial research use only.
+CC BY-NC-SA 4.0, non-commercial research use only.

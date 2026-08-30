@@ -224,7 +224,7 @@ Dates may shift, watch the [website](https://imageeval2026.github.io/) and our
 
 ## Licensing
 
-The dataset is released under **CC BY-NC 4.0**, non-commercial research use only.
+The dataset is released under **CC BY-NC-SA 4.0**, non-commercial research use only.
 
 ---
 
